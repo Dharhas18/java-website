@@ -28,14 +28,26 @@ weeks.forEach((week, i) => {
     </div>
     <div class="concepts"><strong>Concepts:</strong> ${week[2]}</div>
     <div class="actions">
-      <a class="btn btn-primary" href="#" onclick="return noFile()">Open Document</a>
-      <a class="btn btn-secondary" href="#" onclick="return noFile()">Download PDF</a>
+      <a class="btn btn-primary" href="${pdfUrl(i + 1)}" target="_blank" rel="noopener">Open Document</a>
+      <a class="btn btn-secondary" href="${pdfUrl(i + 1)}" target="_blank" rel="noopener" download>Download PDF</a>
     </div>
   `;
   container.appendChild(card);
 });
 
-function noFile() {
-  alert("Add your Week document/PDF link in script.js to enable this button.");
-  return false;
+function pdfUrl(weekNumber) {
+  const filenames = {
+    1: "week-01.pdf",
+    2: "week-02.pdf",
+    3: "week-03.pdf",
+    4: "week-04.pdf",
+    5: "week-05.pdf",
+    6: "week-06.pdf",
+    7: "week-07.pdf",
+    8: "week-08.pdf",
+    9: "Week-09.pdf",
+    10: "week-10.pdf",
+    11: "Week-11.pdf"
+  };
+  return `https://prazodsai.github.io/java-lab-record/${filenames[weekNumber]}`;
 }
